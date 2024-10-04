@@ -29,6 +29,10 @@ export class Task extends Entity<TaskProps> {
     return this.props.userId
   }
 
+  get subtask() {
+    return this.props.subtask
+  }
+
   get createdAt() {
     return this.props.createdAt
   }
