@@ -1,0 +1,39 @@
+{
+  "name": "to-do-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/serve.ts",
+    "build": "tsup src --format esm",
+    "start": "node dist/serve.mjs",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "test": "vitest run --dir src/use-case"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@prisma/client": "^5.20.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^9.0.1",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "fastify": "^5.0.0",
+    "prisma": "^5.20.0",
+    "tsup": "^8.3.0",
+    "zod": "^3.23.8"
+  }
+}
