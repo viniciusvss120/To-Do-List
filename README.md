@@ -12,6 +12,10 @@
 ## Para rodar os tests e2e
 - npm run test:e2e
 
+## Para acessar a documentação no swagger
+- http://localhost:3333/docs
+
+O servidor precisa estar iniciado.
 
 ## Observação
 - Esse projeto foi desenvolvido seguindo alguns conceitos de Clean Code;

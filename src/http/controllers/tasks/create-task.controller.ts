@@ -16,16 +16,19 @@ export async function createTaskController(req: FastifyRequest, reply: FastifyRe
   try {
     const registerUseCase = await makeFactoryCreateTaskUseCase()
 
-    await registerUseCase.execute({
+    const task = await registerUseCase.execute({
       title,
       description,
       status,
       userId
+    })
+    return reply.status(201).send({
+      task
     })
 
   } catch (error) {
     reply.status(401).send(error)
   }
 
-  return reply.status(201).send()
+  
 }

@@ -26,7 +26,9 @@ export async function editTaskController(req: FastifyRequest, reply: FastifyRepl
 
     console.log(editTask)
     if(editTask) {
-      return reply.status(204).send()
+      return reply.status(204).send({
+        editTask
+      })
     }
   } catch (error) {
     console.log(error)
