@@ -5,8 +5,26 @@ import { env } from './env'
 import { taskRoutes } from './http/controllers/tasks/routes'
 import { subTaskRoutes } from './http/controllers/sub-task/routes'
 import { subTask2Routes } from './http/controllers/sub-task2/routes'
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUi from '@fastify/swagger-ui'
 
 export const app = fastify()
+
+app.register(fastifySwagger, {
+  swagger: {
+    consumes: ['aplication/json'],
+    produces: ['aplication/json'],
+    info: {
+      title: 'to-do-task',
+      description: 'Especificações da PAI para o back-end da aplicação to-do-task.',
+      version: '1.0.0'
+    }
+  }
+})
+
+app.register(fastifySwaggerUi, {
+  routePrefix: '/docs'
+})
 
 app.register(jwt, {
   secret: env.SECRET_KEY,

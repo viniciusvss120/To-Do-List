@@ -6,7 +6,7 @@ import { SubTask } from 'src/entity/subtask-entity'
 import { SubTask2 } from 'src/entity/subtask2-entity'
 
 
-export class PrismaSubTaskMappers {
+export class PrismaSubTask2Mappers {
   static toDomain(raw: PrismaSubtask2) {
     return SubTask2.create({
       title: raw.title,

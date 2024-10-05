@@ -1,6 +1,7 @@
 import { SubTask2 } from "src/entity/subtask2-entity";
 import { PrismaClient } from "@prisma/client"
 import { Subtask2Repository } from "../subtask2-repository";
+import { PrismaSubTask2Mappers } from "./mapper/prisma-sub-task2-mapper";
 
 
 

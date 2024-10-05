@@ -7,10 +7,10 @@ export async function createSubTask2Controller(req: FastifyRequest, reply: Fasti
     title: z.string(),
     description: z.string(),
     status: z.enum(["concluido", "pendente"]).default("pendente"),
-    taskId: z.string()
+    subTaskId: z.string()
   })
 
-  const {title, description, status, taskId} = taskSchema.parse(req.body)
+  const {title, description, status, subTaskId} = taskSchema.parse(req.body)
 
   try {
     const subTaskUseCase = await makeFactoryCreateSubTask2UseCase()
@@ -19,7 +19,7 @@ export async function createSubTask2Controller(req: FastifyRequest, reply: Fasti
       title,
       description,
       status,
-      taskId
+      subTaskId
     })
 
   } catch (error) {

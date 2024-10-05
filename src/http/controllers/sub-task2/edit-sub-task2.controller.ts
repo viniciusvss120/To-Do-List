@@ -14,7 +14,7 @@ export async function editSubTask2Controller(req: FastifyRequest, reply: Fastify
   const {id, title, description, status} = subtaskSchema.parse(req.body)
 
   try {
-    const editUseCase = await makeFactoryEditSubTask2UseCase()
+    const editUseCase = await makeFactoryEditSubTaskUseCase()
     
     const editSubTask = await editUseCase.execute({
       id,

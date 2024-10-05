@@ -1,5 +1,7 @@
+import { SubTask2 } from "@prisma/client";
 import { SubTask } from "src/entity/subtask-entity";
 import { SubtaskRepository } from "src/repository/subtask-repository";
+import { Subtask2Repository } from "src/repository/subtask2-repository";
 
 interface EditSubTaskRequest {
   id: string
@@ -9,11 +11,11 @@ interface EditSubTaskRequest {
 }
 
 type SubTaskResponse = {
-  subtask: SubTask
+  subtask: SubTask2
 }
 
-export class EditSubTaskUseCase {
-  constructor(private subtaskRepository: SubtaskRepository){}
+export class EditSubTask2UseCase {
+  constructor(private subtask2Repository: Subtask2Repository){}
 
   async execute({
     id,
@@ -22,7 +24,7 @@ export class EditSubTaskUseCase {
     status,
 
   }: EditSubTaskRequest): Promise<SubTaskResponse> {
-    const subtask = await this.subtaskRepository.findById(id)
+    const subtask = await this.subtask2Repository.findById(id)
 
     if (!subtask) {
       throw new Error('SubTask not found !')
@@ -32,7 +34,7 @@ export class EditSubTaskUseCase {
     subtask.description = description
     subtask.status = status
 
-    await this.subtaskRepository.save(subtask)
+    await this.subtask2Repository.save(subtask)
 
     return {
       subtask
