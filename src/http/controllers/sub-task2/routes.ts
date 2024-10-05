@@ -32,6 +32,31 @@ export async function subTask2Routes(app: FastifyInstance){
       }
     }
   }}, createSubTask2Controller)
-  app.put('/subtask2', editSubTask2Controller)
+  app.put('/subtask2',{
+    schema:{
+    description: 'Editar task',
+    tags: ['Edit SubTask2'],
+    body: {
+      type: 'object',
+      required: ['id', 'title', 'description', 'status'],
+      properties: {
+        id: {type: 'string'},
+        title: {type: 'string'},
+        description: {type: 'string'},
+        status: {type: 'string'}
+      }
+    },
+    response: {
+      204: {
+        type: 'object',
+        properties: {
+          title: {type: 'string'},
+          description: {type: 'string'},
+          status: {type: 'string'},
+          subTaskId: {type: 'string'},
+        }
+      }
+    }
+  }}, editSubTask2Controller)
   app.delete('/subtask2/:id', deleteSubTask2Controller) 
 }

@@ -33,8 +33,8 @@ export async function subTaskRoutes(app: FastifyInstance){
   }}, createSubTaskController)
   app.put('/subtask',{
     schema:{
-    description: 'Editar task',
-    tags: ['Edit Task'],
+    description: 'Editar sub task',
+    tags: ['Edit Sub Task'],
     body: {
       type: 'object',
       required: ['id', 'title', 'description', 'status'],

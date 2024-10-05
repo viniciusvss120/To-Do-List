@@ -1,6 +1,7 @@
 import { hash } from "bcrypt";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { makeFactoryEditSubTaskUseCase } from "src/use-case/factory/make-factory-edit-sub-task";
+import { makeFactoryEditSubTask2UseCase } from "src/use-case/factory/make-factory-edit-sub-task2";
 import { z } from "zod";
 
 export async function editSubTask2Controller(req: FastifyRequest, reply: FastifyReply) {
@@ -14,7 +15,7 @@ export async function editSubTask2Controller(req: FastifyRequest, reply: Fastify
   const {id, title, description, status} = subtaskSchema.parse(req.body)
 
   try {
-    const editUseCase = await makeFactoryEditSubTaskUseCase()
+    const editUseCase = await makeFactoryEditSubTask2UseCase()
     
     const editSubTask = await editUseCase.execute({
       id,
