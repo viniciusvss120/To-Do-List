@@ -1,3 +1,4 @@
+import { hash } from "bcrypt"
 import { User } from "../../entity/user-entity"
 import { UserRepository } from "../../repository/user-repository"
 

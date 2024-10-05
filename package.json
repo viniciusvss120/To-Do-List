@@ -9,7 +9,8 @@
     "start": "node dist/serve.mjs",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "test": "vitest run --dir src/use-case"
+    "test": "vitest run --dir src/use-case",
+    "test:e2e": "vitest run --dir src/http"
   },
   "keywords": [],
   "author": "",

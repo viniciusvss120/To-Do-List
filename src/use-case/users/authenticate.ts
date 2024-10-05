@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { compare } from "bcrypt";
 import { UserRepository } from "src/repository/user-repository";
 
@@ -7,7 +8,8 @@ interface AuthenticateRequest {
 }
 
 type AuthenticateResponse = {
-  token: string
+  token: string,
+  userId: string
 }
 
 export class AuthenticateUseCase {
@@ -30,6 +32,7 @@ export class AuthenticateUseCase {
     }
 
     return {
+      userId: user.id.toString(),
       token: 'dmvfmçkfm dfn dfn kd'
     }
   }

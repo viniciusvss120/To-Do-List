@@ -37,13 +37,14 @@ export class Task extends Entity<TaskProps> {
     return this.props.createdAt
   }
 
+  get updatedAt() {
+    return this.props.updatedAt
+  }
+  
   update() {
     this.props.updatedAt = new Date()
   }
 
-  get updatedAt() {
-    return this.props.updatedAt
-  }
 
 
   set title(title: string) {

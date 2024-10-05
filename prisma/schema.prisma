@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String
+  task Task[] 
+
+  @@map("users")
+}
+
+model Task {
+  id String @id @default(uuid())
+  title String @unique
+  description String
+  status String 
+  userId String
+  subtask SubTask[]
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("tasks")
+}
+
+model SubTask {
+  id String @id @default(uuid())
+  title String 
+  description String
+  status String 
+  taskId String
+  subtask SubTask2[]
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  task Task @relation(fields: [taskId], references: [id])
+
+  @@map("sub_tasks")
+}
+
+model SubTask2 {
+  id String @id @default(uuid())
+  title String 
+  description String 
+  status String 
+  subTaskId String @map("sub_task_id")
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  subtask SubTask @relation(fields: [subTaskId], references: [id])
+
+  @@map("sub_tasks2")
+}

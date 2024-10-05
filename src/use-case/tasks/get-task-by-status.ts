@@ -8,7 +8,7 @@ interface GetTaskRequest {
 type GetTaskResponse = {
   task: Task[]
 }
-export class GetTaskByUserUseCase {
+export class GetTaskByStatusUseCase {
   constructor(private taskRepository: TaskRepository) {}
 
   async execute({

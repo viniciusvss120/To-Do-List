@@ -2,6 +2,7 @@ import { InMemoryUser } from 'src/repository/in-memory/in-memory-user'
 import {beforeEach, describe, expect, it} from 'vitest'
 import { EditUserUseCase } from './edit-user'
 import { User } from 'src/entity/user-entity'
+import { hash } from 'bcrypt'
 
 
 let inMemoryUser: InMemoryUser

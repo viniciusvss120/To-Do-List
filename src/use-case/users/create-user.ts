@@ -1,3 +1,4 @@
+import { hash } from "bcrypt"
 import { User } from "../../entity/user-entity"
 import { UserRepository } from "../../repository/user-repository"
 
@@ -26,7 +27,7 @@ export class CreateUserUseCase {
     const user = await User.create({
       name,
       email,
-      password
+      password: await hash(password, 8)
     })
 
     await this.userRepository.create(user)
