@@ -24,7 +24,7 @@ export async function editUserController(req: FastifyRequest, reply: FastifyRepl
 
     console.log(editUser)
     if(editUser) {
-      return reply.status(204).send()
+      return reply.status(204).send({editUser})
     }
   } catch (error) {
     console.log(error)

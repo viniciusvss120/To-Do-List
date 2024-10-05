@@ -12,14 +12,14 @@ export const app = fastify()
 
 app.register(fastifySwagger, {
   swagger: {
-    consumes: ['aplication/json'],
-    produces: ['aplication/json'],
+    consumes: ['application/json'],
+    produces: ['application/json'],
     info: {
       title: 'to-do-task',
       description: 'Especificações da PAI para o back-end da aplicação to-do-task.',
       version: '1.0.0'
     }
-  }
+  },
 })
 
 app.register(fastifySwaggerUi, {

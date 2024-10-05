@@ -15,15 +15,13 @@ export async function createUserController(req: FastifyRequest, reply: FastifyRe
   try {
     const registerUseCase = await makeFactoryUseCase()
 
-    await registerUseCase.execute({
+    const user = await registerUseCase.execute({
       name,
       email,
       password
     })
-
+    return reply.status(201).send({user})
   } catch (error) {
     reply.status(401).send(error)
   }
-
-  return reply.status(201).send()
 }
