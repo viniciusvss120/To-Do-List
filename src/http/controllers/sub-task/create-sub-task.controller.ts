@@ -15,16 +15,20 @@ export async function createSubTaskController(req: FastifyRequest, reply: Fastif
   try {
     const subTaskUseCase = await makeFactoryCreateSubTaskUseCase()
 
-    await subTaskUseCase.execute({
+    const subTask2 = await subTaskUseCase.execute({
       title,
       description,
       status,
       taskId
     })
 
+    return reply.status(201).send({
+      subTask2
+    })
+
   } catch (error) {
     reply.status(401).send(error)
   }
 
-  return reply.status(201).send()
+  
 }

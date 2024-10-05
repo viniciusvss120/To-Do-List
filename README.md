@@ -6,6 +6,12 @@
 ## Rodar o docker para iniciar o banco de dados
 - docker-compose up -d
 
+## Para usar o prisma na api
+- npx prisma migrate dev
+
+## Para vizualizar o bando de dados prisma
+- npx prisma studio
+
 ## Para rodar os tests unitários
 - npm run test
 
