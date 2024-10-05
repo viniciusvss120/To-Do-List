@@ -2,19 +2,19 @@ import { SubTask } from "src/entity/subtask-entity";
 import { SubtaskRepository } from "src/repository/subtask-repository";
 
 interface GetSubTaskRequest {
-  status: string
+  taskId: string
 }
 
 type GetSubTaskResponse = {
   subtask: SubTask[]
 }
-export class GetSubTaskByStatusUseCase {
+export class GetSubTaskByTaskUseCase {
   constructor(private subtaskRepository: SubtaskRepository) {}
 
   async execute({
-    status
+    taskId
   }:GetSubTaskRequest): Promise<GetSubTaskResponse> {
-    const subtask = await this.subtaskRepository.findByStatus(status)
+    const subtask = await this.subtaskRepository.findByTaskId(taskId)
 
     if (!subtask) {
       throw new Error('SubTask not found !')

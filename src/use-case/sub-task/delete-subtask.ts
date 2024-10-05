@@ -12,7 +12,7 @@ export class DeleteSubTaskUseCase {
     id
 
   }: DeleteSubTaskRequest) {
-    const subtask = await this.subtaskRepository.findbyId(id)
+    const subtask = await this.subtaskRepository.findById(id)
 
     if (!subtask) {
       throw new Error('SubTask not found !')
